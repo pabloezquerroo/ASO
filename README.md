@@ -20,7 +20,7 @@ Proyecto y ejercicios de la asignatura de Ampliación de Sistemas Operactivos.
 
     * ##### [E/S Multiplexada y Pipes](./EjerciciosESMultiplexadaYPipes/E%20S%20Multiplexada%20y%20Pipes.pdf)
         * ##### *Ejercicio 1 (Tuberías con nombre)*
-            Ejercicio para identificar el comportamiento de las tuberías con nombre. *Más detallado en el enunciado.*
+            Ejercicio para entender el comportamiento de las tuberías con nombre. *Más detallado en el enunciado.*
         * ##### *Ejercicio 2 (Tueberías sin nombre)*
             Escribir un programa que emule el comportamiento de la shell en la ejecución de una sentencia en la forma: comando1 argumento 1 | comando2 argumento2. *Más detallado en el enunciado.*
 

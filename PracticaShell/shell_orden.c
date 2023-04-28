@@ -245,7 +245,23 @@ void ord_wait(struct job *job,struct listaJobs *listaJobs, int esBg) {
     int estado;
     //Sin argumento
     if (job->progs[0].argv[1]==NULL){
-        while(waitpid(-1, &estado, WUNTRACED) != 0);
+		struct job *j=listaJobs->primero;
+		while(j != NULL){
+			waitpid(j->progs[0].pid, &estado, WUNTRACED);
+			if (WIFSIGNALED(estado)){
+				printf("[%d] %s Terminado por señal\n", j->jobId, j->texto);
+				listaJobs->fg=NULL;
+				eliminaJob(listaJobs, j->pgrp, esBg);
+			}else if(WIFSTOPPED(estado)){
+				printf("[%d] %s Parado\n", j->jobId, j->texto);
+				listaJobs->fg=NULL;	
+			}else{
+				printf("[%d] %s Terminado\n", j->jobId, j->texto);
+				listaJobs->fg=NULL;
+				eliminaJob(listaJobs, j->pgrp, esBg);
+			j= j->sigue;
+			}
+		}
     //Con argumentos
     }else{
         struct job *j= buscaJob(listaJobs, atoi(job->progs[0].argv[1]));
@@ -343,8 +359,8 @@ void ord_fg(struct job *job,struct listaJobs *listaJobs, int esBg) {
 
 	struct job *j= buscaJob(listaJobs, atoi(job->progs[0].argv[1]));
 
-	if (j==NULL){
-		printf("No existe el job %d\n", j->jobId);
+	if(j==NULL){
+		printf("No existe el job %d\n", atoi(job->progs[0].argv[1]));
 		
 	//Si existe
 	}else{
@@ -365,15 +381,15 @@ void ord_fg(struct job *job,struct listaJobs *listaJobs, int esBg) {
 			}
 		}else{
 			printf("El job %d no esta parado\n", j->jobId);
-                }   
-        }
+        }   
+    }
 }
 
 void ord_bg(struct job *job, struct listaJobs *listaJobs, int esBg){
     struct job *j= buscaJob(listaJobs, atoi(job->progs[0].argv[1]));
 
     if (j==NULL){
-        printf("No existe el job %d\n", j->jobId);
+        printf("No existe el job %d\n", atoi(job->progs[0].argv[1]));
     //Si existe
     }else{
         //Si esta parado

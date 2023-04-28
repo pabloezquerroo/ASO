@@ -3,16 +3,16 @@
 Proyecto y ejercicios de la asignatura de Ampliación de Sistemas Operactivos.
 
 * ## Proyecto
-    ###### [Enunciado detallado](./PracticaShell/Shell.pdf)
-    ###### Objetivo:
-    Programar un intérprete de órdenes sencillo que permita la ejecución de trabajos con un solo programa, sin cauces, ni redirección de la entrada/salida.
+    *   ##### [Shell](./PracticaShell/Shell.pdf)
+        * ###### Objetivo:
+            Programar un intérprete de órdenes sencillo que permita la ejecución de trabajos con un solo programa, sin cauces, ni redirección de la entrada/salida.
 
-    ###### Descripción:
-    El programa debe soportar algunas de las características propias de los shells que detallaremos a continuación. Siempre que no se especifique lo contrario, el comportamiento será análogo al del shell por defecto (bash).
-    ###### *[Código](./PracticaShell)*
+        * ###### Descripción:
+            El programa debe soportar algunas de las características propias de los shells que detallaremos a continuación. Siempre que no se especifique lo contrario, el comportamiento será análogo al del shell por defecto (bash).
+            ###### *[Código](./PracticaShell)*
 
 * ## Ejercicios
-    *   ##### [Ficheros](./EjerciciosFicheros/Ficheros.pdf): 
+    *   ##### [Ficheros](./EjerciciosFicheros/Ficheros.pdf) 
         * ##### *Ejercicio 1 (Comando myls)*
             Escribir un programa con una funcionalidad semejante a la del comando ls que cumpla con unas especificaciones dadas. *Más detallado en el enunciado.*
             ###### *[Código](./EjerciciosFicheros/E1)*
